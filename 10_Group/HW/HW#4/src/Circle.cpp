@@ -1,5 +1,4 @@
-#include "circle.h"
-#include "shape.h"
+#include "Circle.h"
 #include <iostream>
 
 void Circle::draw() {

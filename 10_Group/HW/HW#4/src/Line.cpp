@@ -1,5 +1,4 @@
-#include "line.h"
-#include "shape.h"
+#include "Line.h"
 #include <iostream>
 
 void Line::draw() {

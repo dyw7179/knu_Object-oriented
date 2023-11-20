@@ -1,5 +1,4 @@
-#include "rect.h"
-#include "shape.h"
+#include "Rect.h"
 #include <iostream>
 
 void Rect::draw() {

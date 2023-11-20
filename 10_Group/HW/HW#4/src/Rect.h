@@ -1,11 +1,11 @@
 #ifndef RECT_H
 #define RECT_H
 
-#include "shape.h"
+#include "Shape.h"
 
 class Rect : public Shape {
 protected:
-    virtual void draw();
+    void draw() override;
 };
 
-#endif // RECT_H
+#endif

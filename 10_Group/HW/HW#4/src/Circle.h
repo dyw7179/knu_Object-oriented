@@ -1,12 +1,11 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
-#include "shape.h"
+#include "Shape.h"
 
 class Circle : public Shape {
 protected:
-    virtual void draw();
+    void draw() override;
 };
 
-#endif // CIRCLE_H
-
+#endif 

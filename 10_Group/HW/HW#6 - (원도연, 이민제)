@@ -1,0 +1,109 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class CoffeeMachine {
+protected:
+	int coffeeLeft{};
+	int coffeeList[3];
+public:
+	CoffeeMachine();
+	void show();
+	bool inputChoice();
+	void refill();
+};
+
+CoffeeMachine::CoffeeMachine() {
+	cout << "명품 커피 자판기를 켭니다." << endl;
+	for (int i = 0; i < 3; i++)
+		coffeeList[i] = 3;
+}
+	
+
+void CoffeeMachine::refill() {
+	cout << "모든 통을 채웁니다~" << endl;
+	for (int i = 0; i < 3; i++)
+		coffeeList[i] = 3;
+}
+
+bool CoffeeMachine::inputChoice() {
+	int choice;
+	cin >> choice;
+	switch (choice) {
+	case 0:// 커피
+		cout << "맛있는 보통 커피 나왔습니다~~ " << endl;
+		coffeeList[0]--; 
+		coffeeList[3]--;
+		coffeeList[4]--;
+		break;
+	case 1:// 설탕
+		cout << "맛있는 설탕 커피 나왔습니다~~ " << endl;
+		coffeeList[0]--;
+		coffeeList[1]--; 
+		coffeeList[3]--;
+		coffeeList[4]--;
+		break;
+	case 2: // 블랙
+		cout << "맛있는 블랙 커피 나왔습니다~~ " << endl;
+		coffeeList[0] -= 2;
+		coffeeList[3]--;
+		coffeeList[4]--;
+		break;
+	case 3: // 모두 채우기
+		refill();
+		break;
+	case 4: // 종료 
+		return false;
+		break;
+	default:
+		cout << "입력이 잘못되었습니다." << endl;
+		break;
+	}
+}
+
+void CoffeeMachine::show() {
+	int kind{ };
+	cout << "Coffee" << "\t";
+	for (int i = 0; i <= coffeeList[kind]; i++) {
+		cout << "*";
+	}
+	kind++;
+	cout << endl;
+	cout << "Sugar" << "\t";
+	for (int i = 0; i <= coffeeList[kind]; i++) {
+		cout << "*";
+	}
+	cout << endl;
+	kind++;
+	cout << "CREAM" << "\t";
+	for (int i = 0; i <= coffeeList[kind]; i++) {
+		cout << "*";
+	}
+	cout << endl;
+	kind++;
+	cout << "Water" << "\t";
+	for (int i = 0; i <= coffeeList[kind]; i++) {
+		cout << "*";
+	}
+	cout << endl;
+	kind++;
+	cout << "Cup" << "\t";
+	for (int i = 0; i <= coffeeList[kind]; i++) {
+		cout << "*";
+	}
+	cout << endl;
+}
+
+static void run() {
+	CoffeeMachine coffeMachine;
+	while (true) {
+		cout << "보통 커피 : 0, 설탕 커피 : 1, 블랙 커피 : 2, 채우기 : 3, 종료 : 4 >> ";
+		if (!coffeMachine.inputChoice())
+			break;
+		coffeMachine.show();
+	}
+}
+
+int main() {
+	run();
+}
